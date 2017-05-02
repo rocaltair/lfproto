@@ -156,8 +156,7 @@ static int luac__open_proto(lua_State *L)
 		{NULL, NULL},
 	};
 	luaL_newmetatable(L, LFUNC_PROTO);
-	lua_newtable(L);
-	luaL_register(L, NULL, lmethods);
+	luaL_newlib(L, lmethods);
 	lua_setfield(L, -2, "__index");
 	return 0;
 }
